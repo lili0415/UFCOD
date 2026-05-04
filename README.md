@@ -153,4 +153,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - This work builds upon [improved-diffusion](https://github.com/openai/improved-diffusion) by OpenAI
-- We thank the authors of [DiffPath](https://github.com/xxx/diffpath) for their foundational work
+- We thank the authors of [DiffPath](https://github.com/clear-nus/diffpath) for their foundational work
