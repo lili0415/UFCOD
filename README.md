@@ -102,12 +102,24 @@ Ready_code/
 
 ## Pretrained Models
 
-We provide pretrained diffusion models:
+We use pretrained diffusion models from [DiffPath](https://github.com/clear-nus/diffpath). Download the checkpoints from the official HuggingFace repository:
 
-| Model | Dataset | Resolution | Download |
-|-------|---------|------------|----------|
-| DDPM | CelebA | 32×32 | [link]() |
-| DDPM | CelebA | 64×64 | [link]() |
+**[https://huggingface.co/ajrheng/diffpath](https://huggingface.co/ajrheng/diffpath)**
+
+| Model | Dataset | Resolution | File |
+|-------|---------|------------|------|
+| DDPM | CelebA | 32×32 | `celeba_32.pt` |
+| DDPM | CelebA | 64×64 | `celeba_64.pt` |
+
+After downloading, place the checkpoint in a convenient location and specify the path when initializing the feature extractor:
+
+```python
+extractor = DiffPathExtractor(
+    model_path="path/to/celeba_32.pt",
+    n_ddim_steps=10,
+    device="cuda"
+)
+```
 
 ## Results
 
