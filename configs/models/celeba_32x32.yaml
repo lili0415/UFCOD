@@ -1,0 +1,13 @@
+# CelebA 32x32 Diffusion Model Configuration
+# Used as the default universal feature extractor
+
+image_size: 32
+num_channels: 128
+num_res_blocks: 3
+learn_sigma: true
+diffusion_steps: 4000
+noise_schedule: cosine
+class_cond: false
+dropout: 0.3
+use_zero_module: true
+clip_denoised: true

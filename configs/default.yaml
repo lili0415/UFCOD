@@ -1,0 +1,71 @@
+# UFCOD Default Configuration
+
+# Model settings
+model:
+  # Path to pretrained diffusion model
+  checkpoint_path: "pretrained/celeba_32x32.pt"
+
+  # Model architecture
+  image_size: 32
+  num_channels: 128
+  num_res_blocks: 3
+  learn_sigma: true
+  diffusion_steps: 4000
+  noise_schedule: "cosine"
+  class_cond: false
+  dropout: 0.3
+
+# Feature extraction
+features:
+  # Number of DDIM steps for feature extraction
+  n_ddim_steps: 10
+
+  # Feature indices to use (0-indexed)
+  # [1, 4] = [eps_sum_sq (Path Energy), deps_dt_sq (Dynamics Energy)]
+  feature_indices: [1, 4]
+
+  # Batch size for feature extraction
+  batch_size: 32
+
+# Detector settings
+detector:
+  # Temperature for soft-min scoring
+  temperature: 0.5
+
+  # Number of nearest neighbors
+  k_neighbors: 10
+
+  # Reference set construction
+  reference:
+    # Number of samples to select
+    n_samples: 100
+
+    # Selection method: 'facility_location', 'stratified', 'random'
+    method: "facility_location"
+
+    # Number of layers for stratified sampling
+    n_layers: 5
+
+  # Score calibration
+  calibration:
+    enabled: true
+    method: "zscore"  # 'zscore' or 'minmax'
+
+# Evaluation settings
+evaluation:
+  # Random seeds for reproducibility
+  seeds: [42, 123, 456, 789, 1024]
+
+  # Metrics to compute
+  metrics: ["auroc", "fpr95", "aupr"]
+
+# Dataset settings
+datasets:
+  # In-distribution datasets
+  id_datasets: ["cifar10", "svhn", "celeba"]
+
+  # Out-of-distribution datasets
+  ood_datasets: ["cifar10", "svhn", "celeba", "cifar100", "texture"]
+
+  # Data root directory
+  data_root: "data/"
