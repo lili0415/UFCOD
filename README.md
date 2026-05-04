@@ -144,12 +144,6 @@ We provide pretrained diffusion models:
 ## Citation
 
 ```bibtex
-@inproceedings{anonymous2026ufcod,
-  title={From Density to Geometry: Few-Shot OOD Detection via Diffusion Trajectory Energy},
-  author={Anonymous},
-  booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
-  year={2026}
-}
 ```
 
 ## License
